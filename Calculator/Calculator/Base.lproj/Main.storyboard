@@ -18,14 +18,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYb-q7-ycs">
-                                <rect key="frame" x="20" y="28" width="560" height="38.5"/>
+                                <rect key="frame" x="20" y="46" width="560" height="38.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qoy-lj-zLZ">
+                                <rect key="frame" x="20" y="20" width="560" height="19"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="itn-Bq-Arc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-p1-Enn">
-                                <rect key="frame" x="28" y="74.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="28" y="93" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="7"/>
@@ -34,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcM-zX-WhN">
-                                <rect key="frame" x="138.5" y="74.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="138" y="93" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="8"/>
@@ -43,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xj-E5-quN">
-                                <rect key="frame" x="249" y="74.5" width="102" height="123.5"/>
+                                <rect key="frame" x="249" y="93" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="9"/>
@@ -52,7 +62,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iaa-TW-EKG">
-                                <rect key="frame" x="359" y="74.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="359.5" y="93" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="×"/>
@@ -61,7 +71,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-rF-I58">
-                                <rect key="frame" x="28" y="206" width="102.5" height="123.5"/>
+                                <rect key="frame" x="28" y="220" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="4"/>
@@ -70,7 +80,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK7-BJ-bAO">
-                                <rect key="frame" x="138.5" y="206" width="102.5" height="123.5"/>
+                                <rect key="frame" x="138" y="220" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="5"/>
@@ -79,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed5-PX-4rS">
-                                <rect key="frame" x="249" y="206" width="102" height="123.5"/>
+                                <rect key="frame" x="249" y="220" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="6"/>
@@ -88,7 +98,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKW-bv-nqm">
-                                <rect key="frame" x="28" y="337.5" width="102.5" height="123"/>
+                                <rect key="frame" x="28" y="346.5" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="1"/>
@@ -97,7 +107,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixw-nM-TYJ">
-                                <rect key="frame" x="138.5" y="337.5" width="102.5" height="123"/>
+                                <rect key="frame" x="138" y="346.5" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="2"/>
@@ -106,7 +116,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYK-A4-86T">
-                                <rect key="frame" x="249" y="337.5" width="102" height="123"/>
+                                <rect key="frame" x="249" y="346.5" width="102" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="3"/>
@@ -115,7 +125,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-BZ-yyp">
-                                <rect key="frame" x="138.5" y="468.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="138" y="473.5" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="0"/>
@@ -124,12 +134,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-1K-klh">
-                                <rect key="frame" x="28" y="468.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="28" y="473.5" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="."/>
+                                <connections>
+                                    <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lAI-CR-X30"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCn-T1-lws">
-                                <rect key="frame" x="249" y="468.5" width="102" height="123.5"/>
+                                <rect key="frame" x="249" y="473.5" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="⏎"/>
@@ -138,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQP-f6-Mfk">
-                                <rect key="frame" x="359" y="206" width="102.5" height="123.5"/>
+                                <rect key="frame" x="359.5" y="220" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="÷"/>
@@ -147,7 +161,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBf-aj-fZh">
-                                <rect key="frame" x="359" y="337.5" width="102.5" height="123"/>
+                                <rect key="frame" x="359" y="346.5" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="+"/>
@@ -156,7 +170,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bub-lK-HvL">
-                                <rect key="frame" x="359" y="468.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="359.5" y="473.5" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="−"/>
@@ -165,34 +179,34 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiI-fz-RDm">
-                                <rect key="frame" x="469.5" y="74.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="469.5" y="93" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="×"/>
+                                <state key="normal" title="sin"/>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VI1-HF-or4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u21-2m-Gp2">
-                                <rect key="frame" x="469.5" y="206" width="102.5" height="123.5"/>
+                                <rect key="frame" x="469.5" y="220" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="÷"/>
+                                <state key="normal" title="cos"/>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V2a-wR-ASY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeC-XG-1Gi">
-                                <rect key="frame" x="469.5" y="337.5" width="102.5" height="123"/>
+                                <rect key="frame" x="469" y="346.5" width="102.5" height="119"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="π"/>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NLZ-Rm-K0b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wo-Aa-BDy">
-                                <rect key="frame" x="469.5" y="468.5" width="102.5" height="123.5"/>
+                                <rect key="frame" x="469.5" y="473.5" width="102.5" height="118.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="√"/>
@@ -210,6 +224,7 @@
                             <constraint firstItem="UeC-XG-1Gi" firstAttribute="leading" secondItem="uBf-aj-fZh" secondAttribute="trailing" constant="8" id="3iT-k1-IX5"/>
                             <constraint firstItem="qCn-T1-lws" firstAttribute="leading" secondItem="bdV-BZ-yyp" secondAttribute="trailing" constant="8" id="40Q-vq-zWt"/>
                             <constraint firstItem="ZK7-BJ-bAO" firstAttribute="leading" secondItem="JqH-rF-I58" secondAttribute="trailing" constant="8" id="4wQ-cN-bv0"/>
+                            <constraint firstItem="Qoy-lj-zLZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5Hx-BB-LH2"/>
                             <constraint firstItem="hYK-A4-86T" firstAttribute="leading" secondItem="Ixw-nM-TYJ" secondAttribute="trailing" constant="8" id="5cP-Li-ZGa"/>
                             <constraint firstItem="JqH-rF-I58" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="71c-aV-P16"/>
                             <constraint firstItem="bub-lK-HvL" firstAttribute="leading" secondItem="qCn-T1-lws" secondAttribute="trailing" constant="8" id="7GP-oY-vXu"/>
@@ -230,15 +245,18 @@
                             <constraint firstItem="bub-lK-HvL" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="FCP-zw-CbC"/>
                             <constraint firstItem="Ixw-nM-TYJ" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="GWD-ug-eNs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bdV-BZ-yyp" secondAttribute="bottom" constant="8" id="Gad-5B-40k"/>
+                            <constraint firstItem="mYb-q7-ycs" firstAttribute="top" secondItem="Qoy-lj-zLZ" secondAttribute="bottom" constant="7.5" id="HN2-Io-srK"/>
                             <constraint firstItem="qKW-bv-nqm" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="HRQ-GV-vXy"/>
                             <constraint firstItem="bdV-BZ-yyp" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="HW1-S7-OCY"/>
                             <constraint firstItem="JqH-rF-I58" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Hcf-yB-aVK"/>
                             <constraint firstItem="Iaa-TW-EKG" firstAttribute="leading" secondItem="4Xj-E5-quN" secondAttribute="trailing" constant="8" id="Hdp-Mq-aZc"/>
                             <constraint firstItem="ed5-PX-4rS" firstAttribute="leading" secondItem="ZK7-BJ-bAO" secondAttribute="trailing" constant="8" id="I63-Hg-g0O"/>
+                            <constraint firstItem="Qoy-lj-zLZ" firstAttribute="leading" secondItem="mYb-q7-ycs" secondAttribute="leading" id="IkX-oE-mm2"/>
                             <constraint firstItem="uBf-aj-fZh" firstAttribute="leading" secondItem="hYK-A4-86T" secondAttribute="trailing" constant="8" id="JPM-qa-5JN"/>
                             <constraint firstItem="Iaa-TW-EKG" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="Kym-Lp-9Zq"/>
                             <constraint firstItem="RVY-1K-klh" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="LaF-yo-6F1"/>
                             <constraint firstItem="hYK-A4-86T" firstAttribute="top" secondItem="ed5-PX-4rS" secondAttribute="bottom" constant="8" id="LeG-En-IAr"/>
+                            <constraint firstItem="Qoy-lj-zLZ" firstAttribute="trailing" secondItem="mYb-q7-ycs" secondAttribute="trailing" id="Nfm-On-RFu"/>
                             <constraint firstItem="4Xj-E5-quN" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="NkY-as-aQI"/>
                             <constraint firstItem="uBf-aj-fZh" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="Nmc-ck-WHg"/>
                             <constraint firstItem="pQP-f6-Mfk" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="NwP-r9-dqE"/>
@@ -283,7 +301,6 @@
                             <constraint firstItem="AMA-p1-Enn" firstAttribute="top" secondItem="mYb-q7-ycs" secondAttribute="bottom" constant="8" id="syu-d4-gJ3"/>
                             <constraint firstItem="ZK7-BJ-bAO" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="t63-RZ-Qol"/>
                             <constraint firstItem="hYK-A4-86T" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="thb-WM-DFn"/>
-                            <constraint firstItem="mYb-q7-ycs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="u4L-OX-YjS"/>
                             <constraint firstItem="hYK-A4-86T" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="uov-Gs-9l5"/>
                             <constraint firstItem="bub-lK-HvL" firstAttribute="width" secondItem="AMA-p1-Enn" secondAttribute="width" id="vdw-2u-xBc"/>
                             <constraint firstItem="qKW-bv-nqm" firstAttribute="height" secondItem="AMA-p1-Enn" secondAttribute="height" id="vpw-0P-llf"/>
@@ -298,6 +315,7 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="mYb-q7-ycs" id="Wxk-aJ-hDm"/>
+                        <outlet property="inputList" destination="Qoy-lj-zLZ" id="WiZ-cP-MwF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

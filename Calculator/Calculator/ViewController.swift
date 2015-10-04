@@ -11,12 +11,18 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var inputList: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
     var operandStack = Array<Double>()
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        addToEntryList(digit);
+        
+        if digit == "." && display.text!.containsString(".") {
+            return
+        }
         
         if userIsInTheMiddleOfTypingANumber {
             display.text = display.text! + digit
@@ -35,18 +41,29 @@ class ViewController: UIViewController {
     
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
+        addToEntryList(operation)
+        
         if userIsInTheMiddleOfTypingANumber {
             enter()
         }
-        
+
         switch operation {
-            case "×": performOperation { $0 * $1 }
-            case "÷": performOperation { $1 / $0 }
-            case "+": performOperation { $0 + $1 }
-            case "−": performOperation { $1 - $0 }
-            case "√": performSingleOperation { sqrt($0) }
+            case "×": performOperation(*)
+            case "÷": performOperation(/)
+            case "+": performOperation(+)
+            case "−": performOperation(-)
+            case "sin": performSingleOperation(sin)
+            case "cos": performSingleOperation(cos)
+            case "π":
+                displayValue = M_PI
+                enter()
+            case "√": performSingleOperation(sqrt)
             default: break
         }
+    }
+    
+    func addToEntryList(entry: String) {
+        inputList.text! += entry + " ";
     }
         
     func performOperation(operation: (Double, Double) -> Double) {
