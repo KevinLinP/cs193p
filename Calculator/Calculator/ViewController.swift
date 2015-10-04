@@ -62,6 +62,14 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func clear() {
+        inputList.text = ""
+        display.text = "0"
+        userIsInTheMiddleOfTypingANumber = false
+        operandStack.removeAll()
+        print("operandStack = \(operandStack)")
+    }
+    
     func addToEntryList(entry: String) {
         inputList.text! += entry + " ";
     }
