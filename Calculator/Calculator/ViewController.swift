@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputList: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
-    var operandStack = Array<Double>()
+    var brain = CalculatorBrain()
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -35,8 +35,11 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        operandStack.append(displayValue)
-        print("operandStack = \(operandStack)")
+        if let result = brain.pushOperand(displayValue) {
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
     }
     
     @IBAction func operate(sender: UIButton) {
@@ -46,46 +49,24 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingANumber {
             enter()
         }
-
-        switch operation {
-            case "×": performOperation(*)
-            case "÷": performOperation(/)
-            case "+": performOperation(+)
-            case "−": performOperation(-)
-            case "sin": performSingleOperation(sin)
-            case "cos": performSingleOperation(cos)
-            case "π":
-                displayValue = M_PI
-                enter()
-            case "√": performSingleOperation(sqrt)
-            default: break
+        
+        if let result = brain.performOperation(operation) {
+            displayValue = result
+        } else {
+            displayValue = 0
         }
     }
     
-    @IBAction func clear() {
-        inputList.text = ""
-        display.text = "0"
-        userIsInTheMiddleOfTypingANumber = false
-        operandStack.removeAll()
-        print("operandStack = \(operandStack)")
-    }
+//    @IBAction func clear() {
+//        inputList.text = ""
+//        display.text = "0"
+//        userIsInTheMiddleOfTypingANumber = false
+//        operandStack.removeAll()
+//        print("operandStack = \(operandStack)")
+//    }
     
     func addToEntryList(entry: String) {
         inputList.text! += entry + " ";
-    }
-        
-    func performOperation(operation: (Double, Double) -> Double) {
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func performSingleOperation(operation: (Double) -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
     }
     
     var displayValue: Double {
