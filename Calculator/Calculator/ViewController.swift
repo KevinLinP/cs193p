@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
-        addToEntryList(digit);
         
         if digit == "." && display.text!.containsString(".") {
             return
@@ -40,11 +39,12 @@ class ViewController: UIViewController {
         } else {
             displayValue = 0
         }
+        
+        inputList.text = brain.description
     }
     
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
-        addToEntryList(operation)
         
         if userIsInTheMiddleOfTypingANumber {
             enter()
@@ -55,21 +55,8 @@ class ViewController: UIViewController {
         } else {
             displayValue = 0
         }
-    }
-    
-    @IBAction func symbol(sender: UIButton) {
-        let symbol = sender.currentTitle!
-        addToEntryList(symbol)
         
-        if userIsInTheMiddleOfTypingANumber {
-            enter()
-        }
-        
-        if let result = brain.pushOperand(symbol) {
-            displayValue = result
-        } else {
-            displayValue = 0
-        }
+        inputList.text = brain.description
     }
     
     @IBAction func clear() {
@@ -77,10 +64,6 @@ class ViewController: UIViewController {
         display.text = "0"
         userIsInTheMiddleOfTypingANumber = false
         brain.clear()
-    }
-    
-    func addToEntryList(entry: String) {
-        inputList.text! += entry + " ";
     }
     
     var displayValue: Double {

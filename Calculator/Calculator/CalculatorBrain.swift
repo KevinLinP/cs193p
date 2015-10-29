@@ -26,7 +26,47 @@ class CalculatorBrain {
         }
     }
     
-    private var opStack = [Op]();
+    var description: String? {
+        func stringFromStack(stack: [Op]) -> (desc: String?, remainingStack: [Op]) {
+            var remainingStack = stack
+            let op = remainingStack.removeLast()
+            
+            switch op {
+            case .Operand(let num):
+                return ((num.description ?? "ERR"), remainingStack)
+            case .SymbolOperand(let symbol, _):
+                return (symbol, remainingStack)
+            case .UnaryOperation(let symbol, _):
+                let recurseResult = stringFromStack(remainingStack)
+                
+                if let recurseResultDesc = recurseResult.desc {
+                    let resultDesc = "\(symbol)(\(recurseResultDesc))"
+                    return (resultDesc, recurseResult.remainingStack)
+                }
+                
+                return (nil, recurseResult.remainingStack)
+            case .BinaryOperation(let symbol, _):
+                let firstRecurse = stringFromStack(remainingStack)
+                
+                if let firstRecurseDesc = firstRecurse.desc {
+                    let secondRecurse = stringFromStack(firstRecurse.remainingStack)
+                    if let secondRecurseDesc = secondRecurse.desc {
+                        let resultDesc = "(\(firstRecurseDesc) \(symbol) \(secondRecurseDesc))"
+                        return (resultDesc, secondRecurse.remainingStack)
+                    }
+                }
+                
+                return (nil, remainingStack)
+            }
+            
+        }
+        
+        return stringFromStack(opStack).desc
+    }
+    
+    private var opStack = [Op]()
+    
+    var variableValues = [String: Double]()
     
     private let knownSymbols = [
         "π": Op.SymbolOperand("π", M_PI)
@@ -87,17 +127,13 @@ class CalculatorBrain {
         return evaluate()
     }
 
-    func pushOperand(symbol: String) -> Double? {
-        if let operation = knownSymbols[symbol] {
-            opStack.append(operation)
-        }
-        
-        return evaluate()
-    }
-    
     func performOperation(symbol: String) -> Double? {
         if let operation = knownOps[symbol] {
             opStack.append(operation)
+        }
+        
+        if let symbol = knownSymbols[symbol] {
+            opStack.append(symbol)
         }
         
         return evaluate()
