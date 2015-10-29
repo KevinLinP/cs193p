@@ -12,12 +12,14 @@ class CalculatorBrain {
     
     private enum Op: CustomStringConvertible {
         case Operand(Double)
+        case SymbolOperand(String, Double)
         case UnaryOperation(String, (Double) -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
         var description: String {
             switch self {
             case .Operand(let operand): return "\(operand)"
+            case .SymbolOperand(let symbol, _): return symbol
             case .UnaryOperation(let operation, _): return operation
             case .BinaryOperation(let operation, _): return operation
             }
@@ -26,17 +28,25 @@ class CalculatorBrain {
     
     private var opStack = [Op]();
     
+    private let knownSymbols = [
+        "π": Op.SymbolOperand("π", M_PI)
+    ]
+    
     private let knownOps = [
         "×": Op.BinaryOperation("×", *),
         "÷": Op.BinaryOperation("÷") { $1 / $0 },
         "+": Op.BinaryOperation("+", +),
         "−": Op.BinaryOperation("−") { $1 - $0 },
+        "sin": Op.UnaryOperation("sin", sin),
+        "cos": Op.UnaryOperation("cos", cos),
         "√": Op.UnaryOperation("√", sqrt)
     ]
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        print("\(opStack) = \(result) with \(remainder) left over")
+        
+        print("\(opStack) = \(result?.description ?? "ERR") with \(remainder) left over")
+        
         return result
     }
     
@@ -48,6 +58,8 @@ class CalculatorBrain {
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)
+            case .SymbolOperand(_, let value):
+                return (value, remainingOps)
             case .UnaryOperation(_, let operation):
                 let operandEvaluation = evaluate(remainingOps)
                 
@@ -74,6 +86,14 @@ class CalculatorBrain {
         
         return evaluate()
     }
+
+    func pushOperand(symbol: String) -> Double? {
+        if let operation = knownSymbols[symbol] {
+            opStack.append(operation)
+        }
+        
+        return evaluate()
+    }
     
     func performOperation(symbol: String) -> Double? {
         if let operation = knownOps[symbol] {
@@ -81,5 +101,9 @@ class CalculatorBrain {
         }
         
         return evaluate()
+    }
+    
+    func clear() {
+        opStack = []
     }
 }

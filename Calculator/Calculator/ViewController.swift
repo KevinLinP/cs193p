@@ -57,13 +57,27 @@ class ViewController: UIViewController {
         }
     }
     
-//    @IBAction func clear() {
-//        inputList.text = ""
-//        display.text = "0"
-//        userIsInTheMiddleOfTypingANumber = false
-//        operandStack.removeAll()
-//        print("operandStack = \(operandStack)")
-//    }
+    @IBAction func symbol(sender: UIButton) {
+        let symbol = sender.currentTitle!
+        addToEntryList(symbol)
+        
+        if userIsInTheMiddleOfTypingANumber {
+            enter()
+        }
+        
+        if let result = brain.pushOperand(symbol) {
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
+    }
+    
+    @IBAction func clear() {
+        inputList.text = ""
+        display.text = "0"
+        userIsInTheMiddleOfTypingANumber = false
+        brain.clear()
+    }
     
     func addToEntryList(entry: String) {
         inputList.text! += entry + " ";
