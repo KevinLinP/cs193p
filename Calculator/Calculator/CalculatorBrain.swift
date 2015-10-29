@@ -26,45 +26,47 @@ class CalculatorBrain {
         }
     }
     
-    var description: String? {
-        func stringFromStack(stack: [Op]) -> (desc: String?, remainingStack: [Op]) {
+    private var opStack = [Op]()
+    
+    var description: String {
+        func stringFromStack(stack: [Op]) -> (desc: String, remainingStack: [Op]) {
             var remainingStack = stack
-            let op = remainingStack.removeLast()
+            var desc = "?"
             
-            switch op {
-            case .Operand(let num):
-                return ((num.description ?? "ERR"), remainingStack)
-            case .SymbolOperand(let symbol, _):
-                return (symbol, remainingStack)
-            case .UnaryOperation(let symbol, _):
-                let recurseResult = stringFromStack(remainingStack)
+            if !stack.isEmpty {
+                let op = remainingStack.removeLast()
                 
-                if let recurseResultDesc = recurseResult.desc {
-                    let resultDesc = "\(symbol)(\(recurseResultDesc))"
-                    return (resultDesc, recurseResult.remainingStack)
-                }
-                
-                return (nil, recurseResult.remainingStack)
-            case .BinaryOperation(let symbol, _):
-                let firstRecurse = stringFromStack(remainingStack)
-                
-                if let firstRecurseDesc = firstRecurse.desc {
+                switch op {
+                case .Operand(let num):
+                    desc = num.description
+                case .SymbolOperand(let symbol, _):
+                    desc = symbol
+                case .UnaryOperation(let symbol, _):
+                    let recurseResult = stringFromStack(remainingStack)
+                    desc = "\(symbol)(\(recurseResult.desc))"
+                    remainingStack = recurseResult.remainingStack
+                case .BinaryOperation(let symbol, _):
+                    let firstRecurse = stringFromStack(remainingStack)
                     let secondRecurse = stringFromStack(firstRecurse.remainingStack)
-                    if let secondRecurseDesc = secondRecurse.desc {
-                        let resultDesc = "(\(firstRecurseDesc) \(symbol) \(secondRecurseDesc))"
-                        return (resultDesc, secondRecurse.remainingStack)
-                    }
+                    desc = "(\(secondRecurse.desc) \(symbol) \(firstRecurse.desc))"
+                    remainingStack = secondRecurse.remainingStack
                 }
-                
-                return (nil, remainingStack)
             }
             
+            return (desc, remainingStack)
         }
         
-        return stringFromStack(opStack).desc
+        var remainingStack = opStack
+        var expressions = [String]()
+        
+        while !remainingStack.isEmpty {
+            let result = stringFromStack(remainingStack)
+            expressions.append(result.desc)
+            remainingStack = result.remainingStack
+        }
+        
+        return expressions.joinWithSeparator(", ")
     }
-    
-    private var opStack = [Op]()
     
     var variableValues = [String: Double]()
     
