@@ -12,6 +12,7 @@ class CalculatorBrain {
     
     private enum Op: CustomStringConvertible {
         case Operand(Double)
+        case VariableOperand(String)
         case SymbolOperand(String, Double)
         case UnaryOperation(String, (Double) -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
@@ -19,6 +20,7 @@ class CalculatorBrain {
         var description: String {
             switch self {
             case .Operand(let operand): return "\(operand)"
+            case .VariableOperand(let variable): return variable
             case .SymbolOperand(let symbol, _): return symbol
             case .UnaryOperation(let operation, _): return operation
             case .BinaryOperation(let operation, _): return operation
@@ -39,6 +41,8 @@ class CalculatorBrain {
                 switch op {
                 case .Operand(let num):
                     desc = num.description
+                case .VariableOperand(let variable):
+                    desc = variable
                 case .SymbolOperand(let symbol, _):
                     desc = symbol
                 case .UnaryOperation(let symbol, _):
@@ -100,6 +104,10 @@ class CalculatorBrain {
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)
+            case .VariableOperand(let variable):
+                if let value = variableValues[variable] {
+                    return (value, remainingOps)
+                }
             case .SymbolOperand(_, let value):
                 return (value, remainingOps)
             case .UnaryOperation(_, let operation):
@@ -128,6 +136,11 @@ class CalculatorBrain {
         
         return evaluate()
     }
+    
+    func pushOperand(symbol: String) -> Double? {
+        opStack.append(Op.VariableOperand(symbol))
+        return evaluate()
+    }
 
     func performOperation(symbol: String) -> Double? {
         if let operation = knownOps[symbol] {
@@ -143,5 +156,6 @@ class CalculatorBrain {
     
     func clear() {
         opStack = []
+        variableValues = [:]
     }
 }

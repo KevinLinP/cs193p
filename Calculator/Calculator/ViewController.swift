@@ -34,10 +34,9 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue) {
-            displayValue = result
-        } else {
-            displayValue = 0
+        
+        if let value = displayValue {
+            displayValue = brain.pushOperand(value)
         }
         
         inputList.text = brain.description
@@ -66,13 +65,34 @@ class ViewController: UIViewController {
         brain.clear()
     }
     
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if display.text!.isEmpty {
+                return nil
+            } else {
+               return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            }
         }
         set {
-            display.text = "\(newValue)"
             userIsInTheMiddleOfTypingANumber = false
+            if let num = newValue {
+                display.text = "\(num)"
+            } else {
+                display.text = ""
+            }
         }
+    }
+    
+    @IBAction func storeVariable() {
+        brain.variableValues["M"] = displayValue
+    }
+    
+    @IBAction func callVariable() {
+        if userIsInTheMiddleOfTypingANumber {
+            enter()
+        }
+        
+        displayValue = brain.pushOperand("M")
+        inputList.text = brain.description
     }
 }
